@@ -1,0 +1,9 @@
+<center>
+
+<h1>See all of our dogs available for adoption here:</h1>
+
+  <% @dogs.each do |dog| %>
+    <h3><%= link_to dog.name, dog_path(dog) %></h3>
+  <% end %>
+
+</center>

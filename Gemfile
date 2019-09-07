@@ -4,7 +4,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.1'
 
 
-gem 'Figaro'
+
+gem 'faker'
+gem 'dotenv-rails'
+gem 'rest-client'
+gem 'json'
+
 gem 'bcrypt', '~>3.1.7'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
