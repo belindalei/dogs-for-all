@@ -1,0 +1,7 @@
+<h1><%= "Assign #{@dog.name} to an owner below:"  %> </h1>
+
+<%= form_for @dog do |f| %>
+  <%= f.label :owner %><br>
+  <%= f.select :owner_ids, @owners.collect {|x| [x.name, x.id]}, {}, :multiple => true %><br>
+  <%= f.submit "Assign Owner" %>
+<% end %>

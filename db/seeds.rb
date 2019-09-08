@@ -7,7 +7,7 @@ response = RestClient.get('https://api.petfinder.com/v2/animals?type=dog&page=2'
 dogs_data = JSON.parse(response)['animals']
 
 
-5.times do |i|
+20.times do |i|
 
   random_pics = RestClient.get('https://dog.ceo/api/breeds/image/random')
   dog_pics_data = JSON.parse(random_pics)["message"]
