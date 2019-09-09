@@ -6,6 +6,16 @@ Owner.destroy_all
 response = RestClient.get('https://api.petfinder.com/v2/animals?type=dog&page=2', headers= {'Authorization': "Bearer #{ENV['AUTH_TOKEN']}"})
 dogs_data = JSON.parse(response)['animals']
 
+# def nil_check(data)
+#   response = RestClient.get('https://api.petfinder.com/v2/animals?type=dog&page=2', headers= {'Authorization': "Bearer #{ENV['AUTH_TOKEN']}"})
+#   dogs_data = JSON.parse(response)['animals']
+#   if data == nil || data == []
+#     img_url = "https://bit.ly/2lY2dkh"
+#   else
+#     img_url = dogs_data[0]["photos"][0]["small"]
+#   end 
+# end
+
 
 20.times do |i|
 
@@ -18,6 +28,7 @@ dogs_data = JSON.parse(response)['animals']
     gender: dogs_data[i]["gender"],
     age: dogs_data[i]["age"], #age is a string 
     img_url: dog_pics_data #currently showing random pictures since not every dog has a picture 
+    # img_url: nil_check(dogs_data[i]["photos"])
     )
 end
 
@@ -31,13 +42,7 @@ end
     ## => <Dog id: 10, name: "Edna", breed: "Chihuahua", gender: "Female", age: "Adult", img_url: "https://bit.ly/2lY2dkh", created_at: "2019-09-07 14:06:43", updated_at: "2019-09-07 14:06:43">
 
     
-    # def nil_check(data)
-    #   if data == nil || data == []
-    #     img_url = "https://bit.ly/2lY2dkh"
-    #   else
-    #     img_url = dogs_data[0]["photos"][0]["small"]
-    #   end 
-    # end
+  
 
 
 5.times do 

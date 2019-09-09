@@ -12,8 +12,15 @@ class OwnersController < ApplicationController
   end
 
   def create
-    @owner = Owner.create(owner_params)
-    redirect_to owners_path
+    @owner = Owner.new(owner_params)
+
+    if @owner.valid?
+      @owner.save
+      redirect_to owners_path(@owner)
+    else
+      flash.now[:messages] = @owner.errors.full_messages
+      render :new
+    end
   end
 
   def owner_params

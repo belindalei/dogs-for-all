@@ -3,34 +3,32 @@ class DogsController < ApplicationController
     @dogs = Dog.all
   end
 
-  def show  #not working...associations error
+  def show
     @dog = Dog.find(params[:id])
+    @adoptions = @dog.adoptions
+    @owners = @dog.owners
   end
 
   def new
     @dog = Dog.new
   end
 
-  def create #creates a new dog but goes to empty path...do we even need new dogs actually since the API would just add them? 
-    @dog = Dog.create(dog_params)
-    redirect_to dogs_path
-  end
+  def create
+    @dog = Dog.new(dog_params)
 
-  def edit 
-    @dog = Dog.find(params[:id])
-    @owners = Owner.all 
-  end 
-
-  def update 
-    @dog = Dog.find(params[:id])
-    @dog.update(dog_params)
-    redirect_to dog_path(@dog)
+    if @dog.valid?
+      @dog.save
+      redirect_to dog_path(@dog)
+    else
+      flash.now[:messages] = @dog.errors.full_messages
+      render :new
+    end
   end
 
   private 
 
   def dog_params
-    params.require(:dog).permit(:owner)
+    params.require(:dog).permit(:name, :breed, :age, :img_url)
   end
 
 end

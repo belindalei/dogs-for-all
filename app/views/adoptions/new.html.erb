@@ -1,0 +1,18 @@
+<h1>Create A New Adoption</h1>
+
+<%if flash[:messages]%>
+    <h2>Requirements:</h2>
+    <ul>
+    <% flash[:messages].each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+    </ul>
+<%end%>
+
+<%= form_for @adoption do |f| %>
+  <%= f.label :owner %><br>
+  <%= f.collection_select :owner_id, @owners, :id, :name, prompt: true%><br>
+  <%= f.label :dog %><br>
+  <%= f.collection_select :dog_id, @dogs, :id, :name, prompt: true%><br>
+  <%= f.submit "Create a new adoption!" %>
+<% end %>

@@ -1,5 +1,14 @@
 <h1>Create a new dog</h1>
 
+<%if flash[:messages]%>
+    <h2>Requirements:</h2>
+    <ul>
+    <% flash[:messages].each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+    </ul>
+<%end%>
+
 <%= form_for @dog do |f| %>
   <%= f.label :name %><br>
   <%=f.text_field :name  %><br>

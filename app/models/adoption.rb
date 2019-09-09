@@ -1,6 +1,6 @@
 class Adoption < ApplicationRecord
-  has_one :owner
-  has_one :dog 
   belongs_to :owner
   belongs_to :dog
+
+  validates :owner_id, :dog_id, presence: true, uniqueness: true
 end

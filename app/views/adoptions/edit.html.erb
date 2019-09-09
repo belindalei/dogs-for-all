@@ -1,0 +1,19 @@
+<h1>Editing An Adoption</h1>
+
+<%if flash[:messages]%>
+    <h2>Requirements:</h2>
+    <ul>
+    <% flash[:messages].each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+    </ul>
+<%end%>
+
+<%= form_for @adoption do |f| %>
+  <%= f.label :owner %><br>
+  <%= f.collection_select :owner_id, @owners, :id, :name%><br>
+  <%= f.label :dog %><br>
+  <%= f.collection_select :dog_id, @dogs, :id, :name%><br>
+  <%# f.select :owner_ids, @owners.collect {|x| [x.name, x.id]}, {}, :multiple => true %><br>
+  <%= f.submit "Edit adoption!" %>
+<% end %>
