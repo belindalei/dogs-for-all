@@ -1,4 +1,4 @@
-<h1>Create a new owner below:</h1>
+<h1>Sign up as a new owner below:</h1>
 
 <%if flash[:messages]%>
     <h2>Requirements:</h2>
@@ -10,6 +10,10 @@
 <%end%>
 
 <%= form_for @owner do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.submit "Create new owner" %>

@@ -1,8 +1,10 @@
 <center>
 <h1>Adoption Number: <%= @adoption.id %></h1>
 
-<img src= "<%= @adoption.dog.img_url %>">
+<img src= "<%= @adoption.dog.img_url %>" style="max-width:80%;"alt="Dog">
+<img src= "<%= @adoption.cat.img_url %>" style="max-width:80%;"alt="Cat">
 
 <ul>Owner: <%= @adoption.owner.name %></ul>
 <ul>Dog: <%= @adoption.dog.name %></ul>
+<ul>Cat: <%= @adoption.cat.name %></ul>
 <center>

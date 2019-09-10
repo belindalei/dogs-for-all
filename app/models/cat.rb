@@ -1,4 +1,4 @@
-class Dog < ApplicationRecord
+class Cat < ApplicationRecord
   has_many :adoptions
   has_many :owners, through: :adoptions 
 

@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Next Steps: 
+* Keep on working in Cat model 
+* Specs - there should be at least 10 specs in your project (five per person). 
+* An analytics page - The main learning goal of this is to get you to write some interesting activerecord queries 
 
-Things you may want to cover:
 
-* Ruby version
+Make Pretty! 
+- Have all the names be in humanize form 
+- Font family
+= Add dog picture to owner show page 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Reaches 
+- Counter for number of adoptions made?
+- Get the breeds associated with the pictures 

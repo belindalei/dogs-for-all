@@ -16,6 +16,7 @@ class OwnersController < ApplicationController
 
     if @owner.valid?
       @owner.save
+      session[:owner_id] = @owner.id 
       redirect_to owners_path(@owner)
     else
       flash.now[:messages] = @owner.errors.full_messages
@@ -24,7 +25,7 @@ class OwnersController < ApplicationController
   end
 
   def owner_params
-    params.require(:owner).permit(:name)
+    params.require(:owner).permit(:name, :password, :username)
   end
 
 end

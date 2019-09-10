@@ -14,6 +14,7 @@
   <%= f.collection_select :owner_id, @owners, :id, :name%><br>
   <%= f.label :dog %><br>
   <%= f.collection_select :dog_id, @dogs, :id, :name%><br>
-  <%# f.select :owner_ids, @owners.collect {|x| [x.name, x.id]}, {}, :multiple => true %><br>
+  <%= f.label :cat %><br>
+  <%= f.collection_select :cat_id, @cats, :id, :name%><br>
   <%= f.submit "Edit adoption!" %>
 <% end %>

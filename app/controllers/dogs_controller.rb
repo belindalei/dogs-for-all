@@ -11,6 +11,7 @@ class DogsController < ApplicationController
 
   def new
     @dog = Dog.new
+    @ages = ["Old", "Adult", "Young", "Baby"]
   end
 
   def create
@@ -20,6 +21,7 @@ class DogsController < ApplicationController
       @dog.save
       redirect_to dog_path(@dog)
     else
+      @ages = ["Old", "Adult", "Young", "Baby"]
       flash.now[:messages] = @dog.errors.full_messages
       render :new
     end
@@ -28,7 +30,7 @@ class DogsController < ApplicationController
   private 
 
   def dog_params
-    params.require(:dog).permit(:name, :breed, :age, :img_url)
+    params.require(:dog).permit(:name, :breed, :gender, :age, :img_url)
   end
 
 end

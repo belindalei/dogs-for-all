@@ -11,15 +11,19 @@ class AdoptionsController < ApplicationController
     @adoption = Adoption.new
     @owners = Owner.all
     @dogs = Dog.all
+    @cats = Cat.all
   end
 
   def create
-    @adoption = Adoption.create(adopt_params)
+    @adoption = Adoption.new(adopt_params)
 
     if @adoption.valid?
       @adoption.save
       redirect_to adoption_path(@adoption)
     else
+      @owners = Owner.all
+      @dogs = Dog.all
+      @cats = Cat.all
       flash.now[:messages] = @adoption.errors.full_messages
       render :new
     end
@@ -30,6 +34,7 @@ class AdoptionsController < ApplicationController
     @adoption = Adoption.find(params[:id])
     @owners = Owner.all
     @dogs = Dog.all
+    @cats = Cat.all
   end
 
   def update
@@ -45,6 +50,6 @@ class AdoptionsController < ApplicationController
 
   private
   def adopt_params
-    params.require(:adoption).permit(:owner_id, :dog_id)
+    params.require(:adoption).permit(:owner_id, :dog_id, :cat_id)
   end
 end

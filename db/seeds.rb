@@ -2,9 +2,58 @@
 Adoption.destroy_all
 Dog.destroy_all
 Owner.destroy_all
+Cat.destroy_all
 
-response = RestClient.get('https://api.petfinder.com/v2/animals?type=dog&page=2', headers= {'Authorization': "Bearer #{ENV['AUTH_TOKEN']}"})
-dogs_data = JSON.parse(response)['animals']
+#dogs api
+response_dog = RestClient.get('https://api.petfinder.com/v2/animals?type=dog&page=2', headers= {'Authorization': "Bearer #{ENV['AUTH_TOKEN']}"})
+dogs_data = JSON.parse(response_dog)['animals']
+
+#creation of dogs
+20.times do |i|
+
+  random_pics = RestClient.get('https://dog.ceo/api/breeds/image/random')
+  dog_pics_data = JSON.parse(random_pics)["message"]
+
+  Dog.create!(
+    name: dogs_data[i]["name"],
+    gender: dogs_data[i]["gender"],
+    age: dogs_data[i]["age"], #age is a string 
+    img_url: dog_pics_data 
+    )
+end
+
+#cats api
+response_cat = RestClient.get('https://api.petfinder.com/v2/animals?type=cat&page=2', headers= {'Authorization': "Bearer #{ENV['AUTH_TOKEN']}"})
+cats_data = JSON.parse(response_cat)['animals']
+
+#creation of cats 
+20.times do |i|
+
+  random_cat_pics = RestClient.get('https://api.thecatapi.com/v1/images/search', headers= {'Authorization': "Bearer #{ENV['x-api-key']}"})
+  cat_pics_data = JSON.parse(random_cat_pics)
+
+
+  Cat.create!(
+    name: cats_data[i]["name"],
+    gender: cats_data[i]["gender"],
+    age: cats_data[i]["age"], #age is a string 
+    img_url: cat_pics_data[0]["url"] 
+    )
+end
+
+#creation of owner and adoption
+5.times do 
+  Owner.create!(name: Faker::Name.name, username: Faker::Ancient.primordial, password_digest: Faker::Ancient.hero)
+end
+
+
+Adoption.create!(owner: Owner.first, dog: Dog.first, cat: Cat.first)
+Adoption.create!(owner: Owner.second, dog: Dog.second, cat: Cat.second)
+Adoption.create!(owner: Owner.third, dog: Dog.third, cat: Cat.third)
+Adoption.create!(owner: Owner.fourth, dog: Dog.fourth, cat: Cat.fourth)
+Adoption.create!(owner: Owner.fifth, dog: Dog.fifth, cat: Cat.fifth)
+
+
 
 # def nil_check(data)
 #   response = RestClient.get('https://api.petfinder.com/v2/animals?type=dog&page=2', headers= {'Authorization': "Bearer #{ENV['AUTH_TOKEN']}"})
@@ -17,21 +66,6 @@ dogs_data = JSON.parse(response)['animals']
 # end
 
 
-20.times do |i|
-
-  random_pics = RestClient.get('https://dog.ceo/api/breeds/image/random')
-  dog_pics_data = JSON.parse(random_pics)["message"]
-
-  Dog.create!(
-    name: dogs_data[i]["name"],
-    breed: dogs_data[i]["breeds"]["primary"],
-    gender: dogs_data[i]["gender"],
-    age: dogs_data[i]["age"], #age is a string 
-    img_url: dog_pics_data #currently showing random pictures since not every dog has a picture 
-    # img_url: nil_check(dogs_data[i]["photos"])
-    )
-end
-
   # new_dog = Dog.create!(
     #   name: dogs_data[0]["name"],
     #   breed: dogs_data[0]["breeds"]["primary"],
@@ -43,15 +77,3 @@ end
 
     
   
-
-
-5.times do 
-  Owner.create!(name: Faker::Name.name)
-end
-
-
-Adoption.create!(owner: Owner.first, dog: Dog.first)
-Adoption.create!(owner: Owner.second, dog: Dog.second)
-Adoption.create!(owner: Owner.third, dog: Dog.third)
-Adoption.create!(owner: Owner.fourth, dog: Dog.fourth)
-Adoption.create!(owner: Owner.fifth, dog: Dog.fifth)
