@@ -1,0 +1,21 @@
+
+<center>
+
+<img src= "<%= @pet.img_url %>">
+
+<p><h1><%= @pet.name %></h1></p>
+<p>Species: <%= @pet.species %></p>
+<p>Gender: <%= @pet.gender %></p>
+<p>Age: <%= @pet.age %></p>
+<p>Owners: 
+<% @owners.each do |owner| %>
+    <li>
+    <%= owner.name %>
+    <% @adoptions.each do |adopt| %>
+        <% if adopt.owner == owner %>
+            <%= button_to 'adoption information', adoption_path(adopt), method: :get%>
+        <% end %>
+    <% end %>
+    </li>
+<% end %>
+</p>

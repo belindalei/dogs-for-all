@@ -13,8 +13,8 @@
   <%= f.label :owner %><br>
   <%= f.collection_select :owner_id, @owners, :id, :name, prompt: true%><br>
   <%= f.label :dog %><br>
-  <%= f.collection_select :dog_id, @dogs, :id, :name, prompt: true%><br>
+  <%= f.collection_select :dog_id, @dogs, :id, :name, prompt: "none"%><br>
   <%= f.label :cat %><br>
-  <%= f.collection_select :cat_id, @cats, :id, :name, prompt: true%><br>
+  <%= f.collection_select :cat_id, @cats, :id, :name, prompt: "none"%><br>
   <%= f.submit "Create a new adoption!" %>
 <% end %>

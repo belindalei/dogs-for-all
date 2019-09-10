@@ -1,10 +1,13 @@
 <h1><%= @owner.name %></h1>
 <h3>Username: <%= @owner.username %></h3>
 
-<h3>Dogs owned:</h3>
-<% @owner.dogs.each do |dog| %>
-  <%= link_to dog.name, dog_path(dog) %>
+<h3>Pets owned:</h3>
+<% @owner.pets.each do |pet| %>
+  <%= link_to pet.name, pet_path(pet) %>
 <% end %>
+
+<h3>See All Cats Available<h3>
+<%= link_to .name, pet_path(pet) %>
 
 
 

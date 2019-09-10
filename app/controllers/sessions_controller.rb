@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       @owner = Owner.find_by(username: params[:username])
       @owner.try(:authenticate, params[:password])
       if @owner 
-      session[:owner_id] = @owner.id 
+        session[:owner_id] = @owner.id 
         redirect_to owner_path(@owner)
       else 
         @error = ""
