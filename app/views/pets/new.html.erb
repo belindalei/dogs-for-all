@@ -1,0 +1,33 @@
+<div>
+<center>
+<h1>Please submit a new pet for adoption below:</h1>
+
+<div class = "ui warning message">
+  <i class = "close icon"></i>
+  <div class = "header">
+<p><%if flash[:messages]%>
+   <p>Error! You must have the following:</p>
+  </div>
+    <% flash[:messages].each do |message| %>
+        <p><%= message %></p>
+    <% end %>
+<%end%></p>
+</div> 
+
+
+<%= form_for @pet do |f| %>
+  <h3><%= f.label "Pet Name" %></h3>
+  <%= f.text_field :name %>
+  <h3><%= f.label :species %></h3>
+  <%= f.collection_select :species, @species, :to_s, :to_s %>
+  <h3><%= f.label :age %></h3>
+  <%= f.collection_select :age, @ages, :to_s, :to_s %>
+  <h3><%= f.label :gender %></h3>
+  <%= f.text_field :gender %>
+  <h3><%= f.label "Include picture" %></h3>
+  <%= f.text_field :img_url %>
+  <h3><%= f.submit "Submit new pet for adoption", :class=>'button'%></h3>
+<% end %>
+</center>
+</div>
+

@@ -1,14 +1,40 @@
-<h1><%= @owner.name %></h1>
-<h3>Username: <%= @owner.username %></h3>
+  <div>
+  <body class="ownerpage">
+  <center>
+    <h1><%= @owner.name %></h1>
+    <h3>Username: <%= @owner.username %></h3>
 
-<h3>Pets owned:</h3>
-<% @owner.pets.each do |pet| %>
-  <%= link_to pet.name, pet_path(pet) %>
-<% end %>
+    <h3>Pets owned:</h3>
+    <% @owner.pets.each do |pet| %>
+      <p><%= link_to pet.name, pet_path(pet) %> 
+      | 
+      <% @adoptions.each do |adoption| %>
+        <% if adoption.pet == pet %>
+            <%= link_to "Cancel adoption", delete_adoption_path(adoption), :method => "delete"  %><br>
+        <% end %>
+      <% end %>
+      
+    <% end %>
 
-<h3>See All Cats Available<h3>
-<%= link_to .name, pet_path(pet) %>
 
+    <h4>See All Cats Available
+    <%= button_to "See Cats Here", cat_pet_path(), method: :get %>
+    <%= button_to "Adopt A Cat", adopt_cat_path(), method: :get %>
+    </h4>
 
+    <h4>See All Dogs Available
+    <%= button_to "See Dogs Here", dog_pet_path(), method: :get %>
+    <%= button_to "Adopt A Dog", adopt_dog_path(), method: :get %>
+    </h4>
+
+    <h4>See All Pets Available
+    <%= button_to "See All Animals Here", pets_path(), method: :get %>
+    </h4>
+    <br> 
+
+    <%= button_to "Logout", logout_path, class:"button", method: :delete %>
+  </center>
+  </body>
+</div>
 
    

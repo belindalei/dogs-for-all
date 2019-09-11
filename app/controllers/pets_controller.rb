@@ -1,4 +1,4 @@
-class PetsController < ApplicationController
+class PetsController < ApplicationController 
     def index 
         @pets = Pet.all
     end
@@ -12,6 +12,7 @@ class PetsController < ApplicationController
     def new
         @pet = Pet.new
         @ages = ["Old", "Adult", "Young", "Baby"]
+        @species = ["Cat", "Dog"]
     end
 
     def create
@@ -22,17 +23,18 @@ class PetsController < ApplicationController
             redirect_to pet_path(@pet)
         else
             @ages = ["Old", "Adult", "Young", "Baby"]
+            @species = ["Cat", "Dog"]
             flash.now[:messages] = @pet.errors.full_messages
             render :new
         end
     end
 
     def cat
-        @cats = Pet.all.select do |p|
-            p.species == 'cat'
-        end
+        @cats = identify_pet_type('Cat')
+    end
 
-        # redirect_to cat_pet_path()
+    def dog
+        @dogs = identify_pet_type('Dog')
     end
 
     private 

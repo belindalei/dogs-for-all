@@ -6,4 +6,6 @@
     <h3><%= link_to pet.name, pet_path(pet) %></h3>
   <% end %>
 
+  <%= button_to "Adopt", adoptions_path(), class:"button", method: :get %>
+
 </center>

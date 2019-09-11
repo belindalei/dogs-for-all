@@ -1,10 +1,13 @@
 <center>
 <h1>Adoption Number: <%= @adoption.id %></h1>
 
-<img src= "<%= @adoption.dog.img_url %>" style="max-width:80%;"alt="Dog">
-<img src= "<%= @adoption.cat.img_url %>" style="max-width:80%;"alt="Cat">
+<img src= "<%= @adoption.pet.img_url %>" style="max-width:80%;"alt="Pet">
 
-<ul>Owner: <%= @adoption.owner.name %></ul>
-<ul>Dog: <%= @adoption.dog.name %></ul>
-<ul>Cat: <%= @adoption.cat.name %></ul>
+  <p>Owner: <%= @adoption.owner.name %></p>
+  <p>Pet Type: <%= @adoption.pet.species %></p>
+  <p>Pet Name: <%= @adoption.pet.name %></p>
+  <p><%= link_to "Return to your home page", owner_path(@adoption.owner) %></p>
+  <%= button_to "Adopt A Dog", adopt_dog_path(), method: :get %>
+  <br>
+  <%= button_to "Adopt A Cat", adopt_cat_path(), method: :get %>
 <center>

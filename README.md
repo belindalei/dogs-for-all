@@ -1,12 +1,17 @@
 # README
 
 Next Steps: 
-* Keep on working in Cat model 
+* "Submit a pet" => Create a new dog/cat 
 * Specs - there should be at least 10 specs in your project (five per person). 
-* An analytics page - The main learning goal of this is to get you to write some interesting activerecord queries 
+* An analytics page - The main learning goal of this is to get you to write some interesting activerecord queries
+* params 
+
+Troubleshooting: 
+* Validations cut off form 
 
 
 Make Pretty! 
+- Welcome page 
 - Have all the names be in humanize form 
 - Font family
 = Add dog picture to owner show page 
@@ -14,3 +19,6 @@ Make Pretty!
 Reaches 
 - Counter for number of adoptions made?
 - Get the breeds associated with the pictures 
+
+
+*Make ReadMe

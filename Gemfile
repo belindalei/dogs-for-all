@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.1'
 
 
-
+# gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 gem 'faker'
 gem 'dotenv-rails'
 gem 'rest-client'

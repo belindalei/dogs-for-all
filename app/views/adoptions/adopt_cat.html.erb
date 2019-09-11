@@ -1,0 +1,22 @@
+<div>
+  <center>
+  <h1>Create A New Cat Adoption</h1>
+
+  <%if flash[:messages]%>
+      <h2>Requirements:</h2>
+      <ul>
+      <% flash[:messages].each do |message| %>
+          <p><%= message %></p>
+      <% end %>
+      </ul>
+  <%end%>
+
+  <%= form_tag '/adoptions/adopt_cat' do %>
+    <%= collection_select :adoption, :pet_id, @cats, :id, :name, prompt: true %><br><br>
+    <%= submit_tag "Create a new adoption!", class: "button" %>
+  <% end %>
+
+  <h4>Not sure which one to get?</h4>
+  <%= button_to "See all cats", cat_pet_path(), class: "button", method: :get %>
+  </center>
+</div>

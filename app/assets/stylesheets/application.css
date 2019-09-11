@@ -1,15 +1,71 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+/* This is a manifest file that'll be compiled into application.css, which will *include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+* vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+files in this directory. Styles in this file should be added after the last require_ statement.
+* It is generally better to create a new file per style scope.
+*= require_self
+*= require_tree 
+
+*/
+
+/* <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/dist/semantic.min.js"></script> */
+
+/* @import "semantic-ui"; */
+
+body {
+   font-family: Helvetica, Geneva, Arial, sans-serif;
+   font-size: small;
+   font-color: #66FCF1;
+   background-color: #0B0C10
+}
+
+a:link, a:active, a:visited {
+   color: #66FCF1;
+}
+
+h1 {
+  color: #66FCF1;
+}
+
+h2 {
+  color: #66FCF1;
+}
+
+h3 {
+  color: #66FCF1;
+}
+
+h4 {
+  color: #66FCF1;
+}
+
+
+p { 
+   line-height: 150%;
+   color: #C5C6C7;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+
+

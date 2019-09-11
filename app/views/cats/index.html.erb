@@ -1,9 +1,0 @@
-<center>
-
-<h1>See all of our cats available for adoption here:</h1>
-
-  <% @cats.each do |cat| %>
-    <h3><%= link_to cat.name, cat_path(cat) %></h3>
-  <% end %>
-
-</center>

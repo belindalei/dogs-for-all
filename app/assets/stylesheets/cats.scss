@@ -1,3 +1,10 @@
 // Place all the styles related to the Cats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+  body.catpage {
+  background-image: url("grey_cat.jpg");
+  background-size: 1400px;
+    width: 800px;
+    height: 600px;
+  }

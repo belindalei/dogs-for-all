@@ -1,20 +1,22 @@
+<div>
+<center>
 <h1>Sign up as a new owner below:</h1>
 
-<%if flash[:messages]%>
-    <h2>Requirements:</h2>
-    <ul>
+<p><%if flash[:messages]%>
+   <p>Requirements:</p>
     <% flash[:messages].each do |message| %>
-        <li><%= message %></li>
+        <p><%= message %></p>
     <% end %>
-    </ul>
-<%end%>
+<%end%></p>
 
 <%= form_for @owner do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.label :name %>
+  <h3><%= f.label :name %></h3>
   <%= f.text_field :name %>
-  <%= f.submit "Create new owner" %>
+  <h3><%= f.label :username %></h3>
+  <%= f.text_field :username %>
+  <h3><%= f.label :password %></h3>
+  <%= f.password_field :password %>
+  <h3><%= f.submit "Create new owner", :class=>'button'%></h3>
 <% end %>
+</center>
+</div>

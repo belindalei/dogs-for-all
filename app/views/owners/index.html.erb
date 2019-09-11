@@ -1,5 +1,8 @@
+<div>
 <h1>Here is a list of all the users:</h1>
 
 <% @owners.each do |owner| %>
   <li><%= link_to owner.name, owner_path(owner) %></li>
 <% end%>
+
+</div>
