@@ -2,17 +2,14 @@
 <center>
 <h1>Please submit a new pet for adoption below:</h1>
 
-<div class = "ui warning message">
-  <i class = "close icon"></i>
-  <div class = "header">
-<p><%if flash[:messages]%>
-   <p>Error! You must have the following:</p>
-  </div>
-    <% flash[:messages].each do |message| %>
-        <p><%= message %></p>
-    <% end %>
-<%end%></p>
-</div> 
+  <p><%if flash[:messages]%>
+      <p>Error! You must have the following:</p>
+
+      <% flash[:messages].each do |message| %>
+          <p><%= message %></p>
+      <% end %>
+  <%end%></p>
+
 
 
 <%= form_for @pet do |f| %>

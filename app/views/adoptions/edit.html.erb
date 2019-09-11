@@ -2,11 +2,11 @@
 
 <%if flash[:messages]%>
     <h2>Requirements:</h2>
-    <ul>
+    <p>
     <% flash[:messages].each do |message| %>
         <p><%= message %></p>
     <% end %>
-    </ul>
+    </p>
 <%end%>
 
 

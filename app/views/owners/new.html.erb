@@ -1,13 +1,13 @@
-<div>
+
 <center>
 <h1>Sign up as a new owner below:</h1>
 
-<p><%if flash[:messages]%>
+<%if flash[:messages]%>
    <p>Requirements:</p>
     <% flash[:messages].each do |message| %>
-        <p><%= message %></p>
+        <span><%= message %></span>
     <% end %>
-<%end%></p>
+<%end%>
 
 <%= form_for @owner do |f| %>
   <h3><%= f.label :name %></h3>
@@ -19,4 +19,3 @@
   <h3><%= f.submit "Create new owner", :class=>'button'%></h3>
 <% end %>
 </center>
-</div>

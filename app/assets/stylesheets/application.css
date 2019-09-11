@@ -20,33 +20,33 @@ files in this directory. Styles in this file should be added after the last requ
   crossorigin="anonymous"></script>
 <script src="semantic/dist/semantic.min.js"></script> */
 
-/* @import "semantic-ui"; */
+@import "semantic-ui";
 
 body {
    font-family: Helvetica, Geneva, Arial, sans-serif;
    font-size: small;
-   font-color: #66FCF1;
+   font-color: #fff; /*original color 66FCF1*/
    background-color: #0B0C10
 }
 
 a:link, a:active, a:visited {
-   color: #66FCF1;
+   color: #fff;
 }
 
 h1 {
-  color: #66FCF1;
+  color: #fff;
 }
 
 h2 {
-  color: #66FCF1;
+  color: #fff;
 }
 
 h3 {
-  color: #66FCF1;
+  color: #fff;
 }
 
 h4 {
-  color: #66FCF1;
+  color: #fff;
 }
 
 
@@ -56,14 +56,48 @@ p {
 }
 
 .button {
-  background-color: #4CAF50; /* Green */
-  border: none;
+  background-color: #11519b; 
+  border: solid 1px transparent;
+  border-radius: 4px;
   color: white;
-  padding: 15px 32px;
+  padding: 10px 22px;  /*original: 15px 32px*/
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
+}
+
+.button_two {
+  /* default for <button>, but useful for <a> */
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+
+  /* create a small space when buttons wrap on 2 lines */
+  margin: 2px 0;
+
+  /* invisible border (will be colored on hover/focus) */
+  border: solid 1px transparent;
+  border-radius: 4px;
+
+  /* size comes from text & padding (no width/height) */
+  padding: 0.5em 1em;
+
+  color: #fff;
+  background-color: rgb(55, 70, 92);
+  font-size: 12px;
+}
+
+.button_two:hover {
+  color: #fff;
+  border-color: currentColor;
+  background-color: transparent;
+}
+
+.button:hover {
+  color: #fff;
+  border-color: currentColor;
+  background-color: transparent;
 }
 
 
