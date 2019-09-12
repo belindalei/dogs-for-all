@@ -26,9 +26,17 @@ class OwnersController < ApplicationController
       render :new
     end
   end
-
+  
+  def destroy 
+    current_owner
+    session.delete(:owner_id) 
+    @owner.destroy
+    redirect_to root_path
+  end
+  
   def owner_params
     params.require(:owner).permit(:name, :password, :username)
   end
+
 
 end

@@ -5,16 +5,14 @@
 
     <%if flash[:messages]%>
         <h3>Requirements:</h3>
-        <ul>
         <% flash[:messages].each do |message| %>
             <p><%= message %></p>
         <% end %>
-        </ul>
     <%end%>
 
     <%= form_tag '/adoptions/adopt_dog' do %>
       <%= collection_select :adoption, :pet_id, @dogs, :id, :name, prompt: true %><br><br>
-      <%= submit_tag "Create a new adoption!", class:"button" %>
+      <%= submit_tag "Create a new adoption!", data:{confirm: "Are you sure you want to adopt this dog?"}, class:"button" %>
     <% end %>
 
     <br><br>

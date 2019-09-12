@@ -4,4 +4,6 @@ class Owner < ApplicationRecord
   has_secure_password
 
   validates :name, :username, presence: true, uniqueness: true
+  validates :password, length: {minimum: 8}
 end
+ 
