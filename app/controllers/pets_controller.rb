@@ -1,7 +1,11 @@
 class PetsController < ApplicationController 
     def index 
-        @pets = Pet.all
+        # byebug
+        # @pets = Pet.all
+        @ownership_arr = ["No Owner", "Has Owner"]
+        @pets = Pet.filter(params["owners"])
         current_owner
+        # byebug
     end
 
     def show

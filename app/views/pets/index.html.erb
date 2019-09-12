@@ -3,6 +3,12 @@
 <div>
 <center>
 
+<h4>Filter</h4>
+<%= form_tag(pets_path, method: :get) do %>
+<%= collection_select :owners, :pet_id, @ownership_arr, :to_s, :to_s, prompt: true%>
+<%= submit_tag :submit%>
+<% end %>
+
 <h1>See all of our pets available for adoption here:</h1>
 
   <% @pets.each do |pet| %>
