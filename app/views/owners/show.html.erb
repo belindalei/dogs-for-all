@@ -1,40 +1,50 @@
 
-  <div class="ownerpage">
+  <body class="ownerpage">
+  <div class="custom_div">
   <center>
     <h1><%= @owner.name %></h1>
     <h3>Username: <%= @owner.username %></h3>
 
     <h3>Pets owned:</h3>
+    <p> 
     <% @owner.pets.each do |pet| %>
-      <%= link_to pet.name, pet_path(pet) %> 
       <% @adoptions.each do |adoption| %>
         <% if adoption.pet == pet %>
-            <%= link_to "| Cancel adoption", delete_adoption_path(adoption), :method => "delete"  %><br>
+            <%= link_to pet.name, adoption_path(adoption) %> 
+            |
+            <%= link_to "Cancel adoption", delete_adoption_path(adoption), :method => "delete"  %><br>
         <% end %>
       <% end %>
       
     <% end %>
+    </p>
 
     <br><br>
+
+    <h3>View</h3>
  
     <%= button_to "See Cats Here", cat_pet_path(), class:"button_two", method: :get %>
 
     <%= button_to "See Dogs Here", dog_pet_path(), class:"button_two", method: :get %>
-
-
     
     <%= button_to "See All Animals Here", pets_path(), class:"button_two", method: :get %>
-    <br>
+
+    <br><br>
+
+    <h3>Adopt</h3>
 
     <%= button_to "Adopt A Dog", adopt_dog_path(), class:"button_two", method: :get %>
     <%= button_to "Adopt A Cat", adopt_cat_path(), class:"button_two", method: :get %>
 
+    <br><br>
+
     <br>
-    <%= button_to "Submit a pet for adoption", new_pet_path, class:"button_two", method: :get %>
+   <%= button_to "Submit a pet for adoption", new_pet_path, class:"button_two", method: :get %>
     <br><br>
     <%= button_to "Logout", logout_path, class:"button", method: :delete %>
     
   </center>
   </div>
+  </body>
 
    

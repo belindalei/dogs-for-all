@@ -1,7 +1,21 @@
-
+<div class="custom_div">
 <center>
+    <style>  
+        .gfg { 
+            width:auto; 
+            text-align:center; 
+            padding:20px; 
+        } 
+        img { 
+            max-width:100%; 
+                    height:auto; 
+        } 
+    </style>  
 
-<img src= "<%= @pet.img_url %>">
+
+<div class = "gfg"> 
+    <img src= "<%= @pet.img_url %>">
+</div>
 
 
 <p><h1><%= @pet.name %></h1></p>
@@ -24,4 +38,6 @@
 
 <p><%= link_to "See list of dogs", dog_pet_path %> </p>
 <p><%= link_to "See list of cats", cat_pet_path %> </p>
+
+</div>
 

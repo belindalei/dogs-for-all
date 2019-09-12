@@ -1,4 +1,4 @@
-<div>
+<div class="custom_div">
 <center>
 <h1>Please submit a new pet for adoption below:</h1>
 
@@ -21,7 +21,7 @@
   <%= f.collection_select :age, @ages, :to_s, :to_s %>
   <h3><%= f.label :gender %></h3>
   <%= f.text_field :gender %>
-  <h3><%= f.label "Include picture" %></h3>
+  <h4><%= f.label "Please include an image url:" %></h4>
   <%= f.text_field :img_url %>
   <h3><%= f.submit "Submit new pet for adoption", :class=>'button'%></h3>
 <% end %>

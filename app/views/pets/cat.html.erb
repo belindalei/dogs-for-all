@@ -1,7 +1,8 @@
     <body class="catpage">
-        <div>
-        <center>
+    <div class="custom_div">
 
+        <center>
+ 
         <h1>All Cats Available For Adoption</h1>
         <h3>Number of cats available for adoption:
             <strong><%= @cats.count %></strong></h3>
@@ -11,9 +12,10 @@
         <% end %>
 
         <%= button_to "Adopt A Cat", adopt_cat_path(), class:"button", method: :get %>
+        <br><br><br><br>
+        <%= button_to "Return to Home Page", owner_path(@owner), class:"button_two", method: :get %>
 
 
 
         </center>
-        </div>
     </body>

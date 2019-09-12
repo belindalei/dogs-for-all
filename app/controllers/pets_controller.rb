@@ -1,6 +1,7 @@
 class PetsController < ApplicationController 
     def index 
         @pets = Pet.all
+        current_owner
     end
 
     def show
@@ -31,10 +32,12 @@ class PetsController < ApplicationController
 
     def cat
         @cats = identify_pet_type('Cat')
+        current_owner
     end
 
     def dog
         @dogs = identify_pet_type('Dog')
+        current_owner
     end
 
     private 

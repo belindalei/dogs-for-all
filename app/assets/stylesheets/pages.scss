@@ -2,14 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.custom_div {
+
+.pages_div {
     height: 400px;
     width: 400px;
     overflow: visible;
   
 
     position: fixed;
-    top: 25%;
+    top: 40%;
     left: 50%;
     margin-top: -100px;
     margin-left: -200px;
@@ -21,5 +22,13 @@
   background-size: 1250px;
     width: 1000px;
     height: 1000px;
+  }
+
+  body.loginpage {
+  background-image: url("wood.jpg") !important;
+  background-size: 2300px;
+    width: 1500px;
+    height: 1000px;
+
   }
 

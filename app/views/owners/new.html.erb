@@ -1,11 +1,12 @@
-
+<body class="loginpage">
+<div class="pages_div">
 <center>
 <h1>Sign up as a new owner below:</h1>
 
 <%if flash[:messages]%>
    <p>Requirements:</p>
     <% flash[:messages].each do |message| %>
-        <span><%= message %></span>
+        <p><%= message %></p>
     <% end %>
 <%end%>
 
@@ -18,4 +19,8 @@
   <%= f.password_field :password %>
   <h3><%= f.submit "Create new owner", :class=>'button'%></h3>
 <% end %>
+
+<%= link_to "Not new? Sign in here", login_path  %>
 </center>
+</div>
+</body>
