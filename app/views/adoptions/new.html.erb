@@ -1,0 +1,27 @@
+
+<div class="custom_div">
+    <center>
+    <style>  
+        .gfg { 
+            width:auto; 
+            text-align:center; 
+            padding:20px; 
+        } 
+        img { 
+            max-width:100%; 
+                    height:auto; 
+        } 
+    </style>  
+
+
+    <div class = "gfg"> 
+    <img src= "<%= @pet.img_url %>" style="max-width:80%;"alt="Pet">
+    </div>
+
+    <h3>You have selected to adopt <%= @pet.name %></h3>
+    <h3>Are you sure?</h3>
+    <%= button_to "Yes, I'd like to adopt.", create_adoption_path(), class:"button", method: :post, params: {pet: params[:pet]}%>
+    <br><br>
+    <%= button_to "No, I've changed my mind.", owner_path(@owner), class:"button", method: :get%>
+    </center>
+</div>

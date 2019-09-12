@@ -19,13 +19,13 @@
 
 
 <p><h1><%= @pet.name %></h1></p>
-<%= button_to "I'm interested in adopting!", adoptions_path(), class:"button", method: :get %>
+<%= button_to "I'd like to adopt!", new_adoption_path(), class:"button", method: :get, params: {pet: params[:id]}%>
 <p>Species: <%= @pet.species %></p>
 <p>Gender: <%= @pet.gender %></p>
 <p>Age: <%= @pet.age %></p>
 <p>Owners: <br>
 <% @owners.each do |owner| %>
-    <%= owner.name %> -
+    <%= owner.name %> 
     <% @adoptions.each do |adopt| %>
         <% if adopt.owner == owner %>
             <%= link_to 'Adoption Information', adoption_path(adopt)%><br><br>
