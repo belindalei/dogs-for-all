@@ -42,6 +42,8 @@
    <%= button_to "Submit a pet for adoption", new_pet_path, class:"button_two", method: :get %>
     <br><br>
     <%= button_to "Logout", logout_path, class:"button", method: :delete %>
+    <br>
+    <%= link_to "Delete Account", owner_path(@owner), data:{confirm: "Are you sure you want to delete your account?", method: :delete} %>
     
   </center>
   </div>

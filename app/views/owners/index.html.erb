@@ -1,8 +1,13 @@
 <div class="custom_div">
 <h1>Here is a list of all the users:</h1>
 
+<center>
 <% @owners.each do |owner| %>
-  <li><%= link_to owner.name, owner_path(owner) %></li>
+<p>
+  <%= link_to owner.name, owner_path(owner) %>
+  <%= link_to "Delete", owner_path(owner), :method => "delete" %>
+</p>
 <% end%>
+</center>
 
 </div>

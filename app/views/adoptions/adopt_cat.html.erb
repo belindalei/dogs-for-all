@@ -14,7 +14,7 @@
 
   <%= form_tag '/adoptions/adopt_cat' do %>
     <%= collection_select :adoption, :pet_id, @cats, :id, :name, prompt: true %><br><br>
-    <%= submit_tag "Create a new adoption!", class: "button" %>
+    <%= submit_tag "Create a new adoption!", data:{confirm: "Are you sure you want to adopt this cat?"}, class:"button" %>
   <% end %>
 
   <h4>Not sure which one to get?</h4>
