@@ -8,7 +8,7 @@
             <strong><%= @cats.count %></strong></h3>
 
         <% @cats.each do |cat|%>
-            <p><%= link_to cat.name, pet_path(cat) %></p>
+            <p><%= link_to cat.name.humanize, pet_path(cat) %></p>
         <% end %>
 
         <%= button_to "Adopt A Cat", adopt_cat_path(), class:"button", method: :get %>

@@ -5,7 +5,7 @@
 
 
     <% @dogs.each do |dog|%>
-        <p><%= link_to dog.name, pet_path(dog) %><p>
+        <p><%= link_to dog.name.humanize, pet_path(dog) %><p>
     <% end %>
 
     <%= button_to "Adopt A Dog", adopt_dog_path(), class:"button", method: :get %>

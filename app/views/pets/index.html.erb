@@ -12,7 +12,7 @@
 <h1>See all of our pets available for adoption here:</h1>
 
   <% @pets.each do |pet| %>
-    <h3><%= link_to pet.name, pet_path(pet) %></h3>
+    <p><%= link_to pet.name.humanize, pet_path(pet) %></p>
   <% end %>
 
   <%= button_to "Adopt", adoptions_path(), class:"button", method: :get %>

@@ -47,7 +47,7 @@ response_cat = RestClient.get('https://api.petfinder.com/v2/animals?type=cat&pag
 cats_data = JSON.parse(response_cat)['animals']
 
 #creation of cats 
-10.times do |i|
+15.times do |i|
 
   random_cat_pics = RestClient.get('https://api.thecatapi.com/v1/images/search', headers= {'Authorization': "Bearer #{ENV['x-api-key']}"})
   cat_pics_data = JSON.parse(random_cat_pics)
@@ -70,7 +70,7 @@ response_dog = RestClient.get('https://api.petfinder.com/v2/animals?type=dog&pag
 dogs_data = JSON.parse(response_dog)['animals']
 
 #creation of dogs
-20.times do |i|
+15.times do |i|
 
   random_pics = RestClient.get('https://dog.ceo/api/breeds/image/random')
   dog_pics_data = JSON.parse(random_pics)["message"]
