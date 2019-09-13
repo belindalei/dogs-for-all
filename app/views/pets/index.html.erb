@@ -1,18 +1,23 @@
 
 <body class="petsindex">
-<div>
+<div class="custom_div">
 <center>
 
-<h4>Filter</h4>
+
+<h1>See all of our pets available for adoption below:</h1>
+<br>
+
+  <h3>Number of pets available for adoption:
+      <strong><%= @pets.count %></strong></h3>
+
 <%= form_tag(pets_path, method: :get) do %>
-<%= collection_select :owners, :pet_id, @ownership_arr, :to_s, :to_s, prompt: true%>
-<%= submit_tag :submit%>
+<h4><%= label_tag "Filter:" %>
+<%= collection_select :owners, :pet_id, @ownership_arr, :to_s, :to_s, prompt: "See all pets"%>
+<%= submit_tag :submit %> </h4>
 <% end %>
 
-<h1>See all of our pets available for adoption here:</h1>
-
   <% @pets.each do |pet| %>
-    <p><%= link_to pet.name.humanize, pet_path(pet) %></p>
+    <p><%= link_to pet.name, pet_path(pet) %></p>
   <% end %>
 
   <%= button_to "Adopt", adoptions_path(), class:"button", method: :get %>

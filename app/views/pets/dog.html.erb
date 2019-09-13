@@ -2,10 +2,17 @@
     <center>
 
     <h1>All Dogs Available For Adoption</h1>
+    <h3>Number of dogs available for adoption:
+    <strong><%= @dogs.count %></strong></h3>
 
+    <%= form_tag(dog_pet_path, method: :get) do %>
+    <h4><%= label_tag "Filter:" %>
+    <%= collection_select :owners, :pet_id, @ownership_arr, :to_s, :to_s, prompt: "See all dogs"%>
+    <%= submit_tag :submit %> </h4>
+    <% end %>
 
     <% @dogs.each do |dog|%>
-        <p><%= link_to dog.name.humanize, pet_path(dog) %><p>
+        <p><%= link_to dog.name.humanize.titleize, pet_path(dog) %><p>
     <% end %>
 
     <%= button_to "Adopt A Dog", adopt_dog_path(), class:"button", method: :get %>

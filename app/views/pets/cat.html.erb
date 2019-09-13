@@ -7,8 +7,14 @@
         <h3>Number of cats available for adoption:
             <strong><%= @cats.count %></strong></h3>
 
+        <%= form_tag(cat_pet_path, method: :get) do %>
+        <h4><%= label_tag "Filter:" %>
+        <%= collection_select :owners, :pet_id, @ownership_arr, :to_s, :to_s, prompt: "See all cats"%>
+        <%= submit_tag :submit %> </h4>
+        <% end %> 
+
         <% @cats.each do |cat|%>
-            <p><%= link_to cat.name.humanize, pet_path(cat) %></p>
+            <p><%= link_to cat.name, pet_path(cat) %></p>
         <% end %>
 
         <%= button_to "Adopt A Cat", adopt_cat_path(), class:"button", method: :get %>
@@ -18,4 +24,6 @@
 
 
         </center>
+    </div>
     </body>
+   

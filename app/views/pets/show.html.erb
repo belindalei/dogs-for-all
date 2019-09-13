@@ -18,14 +18,15 @@
 </div>
 
 
-<p><h1><%= @pet.name %></h1></p>
+<p><h1><%= @pet.name.humanize.titleize %></h1></p>
 <%= button_to "I'd like to adopt!", new_adoption_path(), class:"button", method: :get, params: {pet: params[:id]}%>
 <p>Species: <%= @pet.species %></p>
 <p>Gender: <%= @pet.gender %></p>
 <p>Age: <%= @pet.age %></p>
 <p>Owners: <br>
 <% @owners.each do |owner| %>
-    <%= owner.name %> 
+    <%= owner.name.humanize.titleize %> 
+    <br>
     <% @adoptions.each do |adopt| %>
         <% if adopt.owner == owner %>
             <%= link_to 'Adoption Information', adoption_path(adopt)%><br><br>
@@ -38,6 +39,7 @@
 
 <p><%= link_to "See list of dogs", dog_pet_path %> </p>
 <p><%= link_to "See list of cats", cat_pet_path %> </p>
+<p><%= link_to "Return to your home page", owner_path(@owner) %></p>
 
 </div>
 

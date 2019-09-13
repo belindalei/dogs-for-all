@@ -22,5 +22,5 @@ class Pet < ApplicationRecord
         else
             Pet.all
         end
-    end
+    end 
 end

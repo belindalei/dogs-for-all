@@ -54,7 +54,7 @@ cats_data = JSON.parse(response_cat)['animals']
 
 
   Pet.create!(
-    name: cats_data[i]["name"],
+    name: cats_data[i]["name"].humanize.titleize,
     species: "Cat",
     gender: cats_data[i]["gender"],
     age: cats_data[i]["age"], #age is a string 
@@ -76,7 +76,7 @@ dogs_data = JSON.parse(response_dog)['animals']
   dog_pics_data = JSON.parse(random_pics)["message"]
 
   Pet.create!(
-    name: dogs_data[i]["name"],
+    name: dogs_data[i]["name"].humanize.titleize,
     species: "Dog",
     gender: dogs_data[i]["gender"],
     age: dogs_data[i]["age"], #age is a string 

@@ -1,13 +1,15 @@
+<div class="custom_div">
 <center>
 <h1>Adoption Number: <%= @adoption.id %></h1>
 
 <img src= "<%= @adoption.pet.img_url %>" style="max-width:80%;"alt="Pet">
 
-  <h1>Owner: <%= @adoption.owner.name %></h1>
+  <h1>Owner: <%= @adoption.owner.name.humanize.titleize %></h1>
   <p>Pet Type: <%= @adoption.pet.species %></p>
-  <p>Pet Name: <%= @adoption.pet.name %></p>
+  <p>Pet Name: <%= @adoption.pet.name.titleize %></p>
   <%= button_to "Adopt A Dog", adopt_dog_path(), class:"button_two", method: :get %>
   <br>
   <%= button_to "Adopt A Cat", adopt_cat_path(), class:"button_two", method: :get %>
   <p><%= link_to "Return to your home page", owner_path(@adoption.owner) %></p>
 <center>
+</div>

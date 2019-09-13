@@ -20,9 +20,10 @@ class ApplicationController < ActionController::Base
 
   #helper method
   def identify_pet_type(species)
-      Pet.all.select do |p|
-          p.species == species
-      end
+    @pets = Pet.filter(params["owners"]).sort_by{ |a| a.name }
+    @pets.select do |p|
+      p.species == species
+    end
   end 
 
 end

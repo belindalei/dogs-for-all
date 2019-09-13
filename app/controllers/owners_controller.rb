@@ -31,6 +31,7 @@ class OwnersController < ApplicationController
     current_owner
     session.delete(:owner_id) 
     @owner.destroy
+    @owner.adoptions.destroy_all
     redirect_to root_path
   end
   

@@ -1,17 +1,15 @@
 class PetsController < ApplicationController 
     def index 
-        # byebug
-        # @pets = Pet.all
         @ownership_arr = ["No Owner", "Has Owner"]
-        @pets = Pet.filter(params["owners"])
+        @pets = Pet.filter(params["owners"]).sort_by{ |a| a.name }
         current_owner
-        # byebug
     end
 
     def show
         @pet = Pet.find(params[:id])
         @adoptions = @pet.adoptions
         @owners = @pet.owners
+        current_owner
     end
 
     def new
@@ -35,13 +33,16 @@ class PetsController < ApplicationController
     end
 
     def cat
+        @ownership_arr = ["No Owner", "Has Owner"]
         @cats = identify_pet_type('Cat')
+        
         current_owner
     end
 
     def dog
+        @ownership_arr = ["No Owner", "Has Owner"]
         @dogs = identify_pet_type('Dog')
-        current_owner
+        current_owner 
     end
 
     private 
