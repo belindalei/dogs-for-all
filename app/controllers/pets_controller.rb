@@ -16,6 +16,7 @@ class PetsController < ApplicationController
         @pet = Pet.new
         @ages = ["Old", "Adult", "Young", "Baby"]
         @species = ["Cat", "Dog"]
+        current_owner
     end
 
     def create
